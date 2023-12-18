@@ -2,21 +2,43 @@ package dominio;
 
 import java.io.Serializable;
 
-
+/**
+ * Clase que representa un teléfono Samsung.
+ * Extiende la clase abstracta Telefono y es serializable.
+ */
 public class TelefonoSamsung extends Telefono implements Serializable {
 
-
+/**
+     * Constructor para un teléfono Samsung.
+     *
+     * @param peso     Peso del teléfono.
+     * @param pantalla Tamaño de la pantalla del teléfono.
+     * @param bateria  Capacidad de la batería del teléfono.
+     * @param camara   Resolución de la cámara del teléfono.
+     * @param memoria  Capacidad de almacenamiento del teléfono.
+     * @param precio   Precio del teléfono.
+     * @param marca    Marca del teléfono.
+     * @param modelo   Modelo del teléfono.
+     */
     public TelefonoSamsung(double peso, double pantalla, int bateria, int camara, int memoria, double precio, String marca, String modelo) {
         super(peso, pantalla, bateria, camara, memoria, precio, marca, modelo);
     }
 
-
+/**
+     * Convierte el objeto TelefonoSamsung a una cadena en formato CSV.
+     *
+     * @return Cadena en formato CSV que representa el teléfono Samsung.
+     */
     @Override
     public String toCSV() {
         return "Samsung," + super.toCSV();
     }
 
-
+ /**
+     * Devuelve una representación en cadena del teléfono Samsung.
+     *
+     * @return Cadena que representa el teléfono Samsung.
+     */
     @Override
     public String toString() {
         return "Samsung{" +
@@ -31,7 +53,12 @@ public class TelefonoSamsung extends Telefono implements Serializable {
                 '}';
     }
 
-
+/**
+     * Convierte una cadena CSV en un objeto TelefonoSamsung.
+     *
+     * @param csvLine Cadena en formato CSV que representa un teléfono Samsung.
+     * @return Objeto TelefonoSamsung creado a partir de la cadena CSV.
+     */
     public static Telefono fromCSV(String csvLine) {
         String[] values = csvLine.split(",");
         return new TelefonoApple(

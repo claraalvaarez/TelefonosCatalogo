@@ -4,17 +4,27 @@ import aplicacion.GestorTelefonos;
 import dominio.*;
 import java.util.List;
 import java.util.Scanner;
-import dominio.Telefono;
 
+/**
+ * La clase `InterfazUsuario` proporciona una interfaz de texto para interactuar con el catálogo de teléfonos.
+ * Permite al usuario agregar, eliminar, modificar y mostrar teléfonos.
+ */
 public class InterfazUsuario {
     private GestorTelefonos gestorTelefonos;
     private Scanner scanner;
 
+    /**
+     * Constructor de la clase `InterfazUsuario`.
+     * @param gestorTelefonos El gestor de teléfonos que se utilizará en la interfaz.
+     */
     public InterfazUsuario(GestorTelefonos gestorTelefonos) {
         this.gestorTelefonos = gestorTelefonos;
         this.scanner = new Scanner(System.in);
     }
 
+    /**
+     * Muestra un menú interactivo y realiza las acciones según la opción seleccionada por el usuario.
+     */
     public void mostrarMenu() {
         int opcion;
         do {
@@ -49,7 +59,12 @@ public class InterfazUsuario {
         } while (opcion != 5);
     }
 
+/**
+     * Agrega un nuevo teléfono al catálogo, solicitando información al usuario.
+     */
     private void agregarTelefono() {
+
+        // Código del método agregarTelefono...
         System.out.println("Agregar nuevo telefono:");
         System.out.print("Tipo de Telefono (Apple, Huawei, Samsung, Xiaomi: ");
         String tipo = scanner.next();
@@ -102,9 +117,11 @@ public class InterfazUsuario {
     }
 
     /**
-     * 
+     * Elimina un teléfono del catálogo, solicitando al usuario que elija el teléfono a eliminar.
      */
     private void eliminarTelefono() {
+
+        // Código del método eliminarTelefono...
         System.out.println("Eliminar telefono:");
         List<Telefono> telefonos = gestorTelefonos.obtenerTelefonos();
         for (int i = 0; i < telefonos.size(); i++) {
@@ -122,7 +139,14 @@ public class InterfazUsuario {
             System.out.println("Indice de telefono inválido.");
         }
     }
+
+    /**
+     * Modifica un teléfono existente en el catálogo, solicitando al usuario que elija el teléfono a modificar
+     * y proporcionando nuevos valores para los atributos.
+     */
     private void modificarTelefono() {
+
+        // Código del método modificarTelefono...
         System.out.println("Modificar telefono:");
         List<Telefono> telefonos = gestorTelefonos.obtenerTelefonos();
         for (int i = 0; i < telefonos.size(); i++) {
@@ -166,7 +190,12 @@ public class InterfazUsuario {
         }
     }
     
+    /**
+     * Muestra la lista de teléfonos actualmente en el catálogo.
+     */
     private void mostrarTelefonos() {
+        
+        // Código del método mostrarTelefonos...
         List<Telefono> telefonos = gestorTelefonos.obtenerTelefonos();
         if (telefonos.isEmpty()) {
             System.out.println("No hay telefonos disponibles.");

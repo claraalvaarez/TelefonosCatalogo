@@ -1,5 +1,10 @@
 package dominio;
 
+/**
+ * La clase abstracta Telefono representa un teléfono genérico con diferentes atributos y métodos comunes.
+ * Las clases concretas como TelefonoApple, TelefonoHuawei, TelefonoSamsung y TelefonoXiaomi
+ * heredan de esta clase para representar tipos específicos de teléfonos.
+ */
 public abstract class Telefono{
     private double peso;
     private double pantalla;
@@ -10,6 +15,18 @@ public abstract class Telefono{
     private String marca;
     private String modelo;
 
+    /**
+     * Constructor de la clase Telefono.
+     *
+     * @param peso     El peso del teléfono.
+     * @param pantalla El tamaño de la pantalla del teléfono.
+     * @param bateria  La capacidad de la batería del teléfono.
+     * @param camara   La resolución de la cámara del teléfono.
+     * @param memoria  La capacidad de almacenamiento del teléfono.
+     * @param precio   El precio del teléfono.
+     * @param marca    La marca del teléfono.
+     * @param modelo   El modelo del teléfono.
+     */
     public Telefono(double peso, double pantalla, int bateria, int camara, int memoria, double precio, String marca, String modelo){
         this.peso = peso;
         this.pantalla = pantalla;
@@ -19,6 +36,8 @@ public abstract class Telefono{
         this.precio = precio;
         this.marca = marca;
         this.modelo = modelo;
+
+    
     }
     public double getPeso(){
         return peso;
@@ -70,10 +89,17 @@ public abstract class Telefono{
     }
 
 
+
     public String toCSV() {
         return peso + "," + pantalla+ "," + bateria + "," + camara + "," + memoria + "," + precio + "," + marca + "," + modelo;
     }
 
+    /**
+     * Convierte una cadena en formato CSV a un objeto Telefono.
+     *
+     * @param csvLine Una cadena en formato CSV que representa los atributos de un teléfono.
+     * @return Un objeto Telefono con los atributos representados por la cadena en formato CSV.
+     */
     public static Telefono fromCSV(String csvLine) {
         String[] values = csvLine.split(",");
         String tipo = values[0];
